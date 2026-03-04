@@ -2,6 +2,7 @@ package br.com.wellerson.financecontrol.controller;
 
 import br.com.wellerson.financecontrol.dto.RemuneracaoRequest;
 import br.com.wellerson.financecontrol.dto.RemuneracaoResponse;
+import br.com.wellerson.financecontrol.dto.RemuneracaoResumoResponse;
 import br.com.wellerson.financecontrol.service.RemuneracaoService;
 
 import jakarta.validation.Valid;
@@ -51,16 +52,13 @@ public class RemuneracaoController {
         return ResponseEntity.ok(remuneracaoService.listarPorUsuarioId(usuarioId));
     }
 
-    @GetMapping("/usuario/{usuarioId}/mes/{mes}/ano/{ano}")
-    public ResponseEntity<List<RemuneracaoResponse>> listarPorUsuarioMesAno(
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<RemuneracaoResumoResponse> buscar(
             @PathVariable Long usuarioId,
-            @PathVariable int mes,
-            @PathVariable int ano) {
-
-        return ResponseEntity.ok(
-                remuneracaoService.listarPorUsuarioMesAno(usuarioId, mes, ano)
-        );
+            @RequestParam(required = false) Integer mes,
+            @RequestParam(required = false) Integer ano
+    ) {
+        return ResponseEntity.ok(remuneracaoService.buscar(usuarioId, mes, ano));
     }
-
 
 }
