@@ -15,3 +15,4 @@ public record RemuneracaoResponse(
         LocalDate dataDeEntrada
 
 ) {}
+
