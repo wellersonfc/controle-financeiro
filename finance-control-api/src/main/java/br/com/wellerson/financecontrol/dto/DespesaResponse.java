@@ -10,9 +10,7 @@ import br.com.wellerson.financecontrol.entity.Despesa;
 public record DespesaResponse(
 
         Long id,
-        String nome,
-        Despesa.TipoDespesa tipo,
-        Despesa.FormaPagamento formaPagamento,
+        String nome,        Despesa.FormaPagamento formaPagamento,
         LocalDate dataCompetencia,
         LocalDate dataLancamento,
         BigDecimal total,

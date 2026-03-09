@@ -22,12 +22,12 @@ public class DespesaService {
         this.despesasRepository = despesasRepository;
     }
 
-    public DespesaResponse criarDespesa(Long usuarioId, DespesaRequest request) {
+    public DespesaResponse criarDespesa(Long usuarioId, Long despesaCategoriaId,  DespesaRequest request) {
 
         Despesa despesa = new Despesa();
         despesa.setUsuarioId(usuarioId);
         despesa.setNome(request.nome());
-        despesa.setTipo(request.tipo());
+        despesa.setDespesaCategoriaId(despesaCategoriaId);
         despesa.setFormaPagamento(request.formaPagamento());
         despesa.setDataCompetencia(request.dataCompetencia());
         despesa.setDataLancamento(request.dataLancamento());
@@ -46,7 +46,6 @@ public class DespesaService {
         return new DespesaResponse(
                 despesa.getId(),
                 despesa.getNome(),
-                despesa.getTipo(),
                 despesa.getFormaPagamento(),
                 despesa.getDataCompetencia(),
                 despesa.getDataLancamento(),
@@ -83,7 +82,6 @@ public class DespesaService {
                 .orElseThrow(() -> new IllegalArgumentException("Despesa não encontrada com ID: " + id));
 
         despesa.setNome(request.nome());
-        despesa.setTipo(request.tipo());
         despesa.setFormaPagamento(request.formaPagamento());
         despesa.setDataCompetencia(request.dataCompetencia());
         despesa.setDataLancamento(request.dataLancamento());

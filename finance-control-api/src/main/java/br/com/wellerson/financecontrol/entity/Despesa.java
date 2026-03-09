@@ -33,8 +33,8 @@ public class Despesa {
 
     private String nome;
 
-    @Enumerated(EnumType.STRING)
-    private TipoDespesa tipo;
+     @Column(name = "despesa_categoria_id", nullable = false)
+    private Long despesaCategoriaId;
 
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
@@ -57,15 +57,6 @@ public class Despesa {
     private LocalDate createdAt;
 
     private String descricao;
-
-    public enum TipoDespesa {
-        CONTA,
-        COMPRA,
-        ASSINATURA,
-        PARCELAMENTO,
-        EMPRESTIMO,
-        OUTROS
-    }
 
     public enum FormaPagamento {
         CARTAO_CREDITO,

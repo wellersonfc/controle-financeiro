@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 import br.com.wellerson.financecontrol.entity.Despesa.FormaPagamento;
 import br.com.wellerson.financecontrol.entity.Despesa.StatusDespesa;
-import br.com.wellerson.financecontrol.entity.Despesa.TipoDespesa;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -13,9 +12,6 @@ public record DespesaRequest(
 
         @NotNull(message = "É necessário informar uma identificação da despesa.")
         String nome,
-
-        @NotNull(message = "É necessário informar o tipo da despesa.")
-        TipoDespesa tipo,
 
         @NotNull(message = "É necessário informar a forma de pagamento.")
         FormaPagamento formaPagamento,
