@@ -25,12 +25,13 @@ public class DespesaController {
     }
 
     // CREATE
-    @PostMapping("/usuario/{usuarioId}")
+    @PostMapping("/usuario/{usuarioId}/categoria/{despesaCategoriaId}")
     public ResponseEntity<DespesaResponse> criar( 
         @PathVariable Long usuarioId,
+        @PathVariable Long despesaCategoriaId,
         @RequestBody @Valid DespesaRequest request
     ) {
-        DespesaResponse response = despesaService.criarDespesa(usuarioId, request);
+        DespesaResponse response = despesaService.criarDespesa(usuarioId, despesaCategoriaId, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

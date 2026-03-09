@@ -11,6 +11,8 @@ import br.com.wellerson.financecontrol.entity.Despesa;
 public interface DespesasRepository extends JpaRepository<Despesa, Long> {
 List<Despesa> findByUsuarioId(Long usuarioId);
 
+List<Despesa> findByUsuarioIdAndDespesaCategoriaId(Long usuarioId, Long despesaCategoriaId);
+
 List<Despesa> findByUsuarioIdAndDataLancamentoBetween(Long usuarioId, LocalDate inicio, LocalDate fim);
 
 } 
